@@ -1,0 +1,36 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" style="background: #33b5e5;">
+
+  <a class="navbar-brand" routerLink="/home">Bienvenue sur BoVoyages</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation"
+    (click)="isMenuCollapsed = !isMenuCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLinkActive="active" routerLink="/home" (click)="isMenuCollapsed = true">Accueil<span
+            class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/voyages" (click)="isMenuCollapsed = true">Nos voyages </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="" routerLink="" (click)="isMenuCollapsed = true">Vos commandes</a>
+      </li>
+    </ul>
+    <!-- Si isAuth est != de false => login -->
+    <!-- <button class="btn btn-primary" type="button" (click)="onLogIn()" *ngIf="!isAuth">Log in</button>  -->
+    <!-- <button class="btn btn-primary" type="button" (click)="onLogOut()" *ngIf="isAuth">Log out</button> -->
+
+    <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+
+  </div>
+  <!-- <app-user-component></app-user-component> -->
+</nav>
+<!-- Navbar End -->
