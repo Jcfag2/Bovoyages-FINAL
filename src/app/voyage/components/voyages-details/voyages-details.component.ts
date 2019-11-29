@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, AfterViewInit } from '@angular/core';
+import { Voyage } from '../../shared/voyage';
+
 
 @Component({
   selector: 'app-voyages-details',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./voyages-details.component.css']
 })
 export class VoyagesDetailsComponent implements OnInit {
+  @Input() voyage:Voyage;
+ 
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.voyage);
+    
   }
-
+  
 }

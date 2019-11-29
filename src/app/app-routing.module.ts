@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CarouselComponent } from './voyage/components/carousel/carousel.component';
 import { VoyageListeComponent } from './voyage/pages/voyage-liste/voyage-liste.component';
 import { VoyageComponent } from './voyage/pages/voyage/voyage.component';
+import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,9 @@ const routes: Routes = [
    },
    {
     path: 'voyages', component: VoyageComponent
+   },
+   {
+    path: 'voyage-details/:id', component: VoyagesDetailsComponent
    },
   {
    path: '**', redirectTo: 'home' //ou 'page-not-found'

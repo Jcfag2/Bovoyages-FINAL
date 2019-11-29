@@ -5,24 +5,48 @@
         <h5 class="font-italic text-muted mb-0">Idées de vacances et destinations populaires</h5>
     </header>
 
+   
 
-    <!-- DEMO 1 -->
+    <!-- VOYAGE -->
     <div class="py-5">
-        <h3 class="font-weight-bold mb-0">Demo 1</h3>
-        <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <h3 class="font-weight-bold mb-0">Consulter nos voyages</h3>
+        <p class="font-italic text-muted mb-4">Idées de séjours, vacances ...</p>
+    
+     <!-- BAR DE RECHERCHE -->
+
+     <!-- <select id="boot-multiselect-demo" multiple="multiple">
+            <option value="jQuery">jQuery Tutorials</option>
+            <option value="Bootstrap">Bootstrap Framework</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS" >CSS</option>
+            <option value="Angular">Angular</option>
+            <option value="Angular">javascript</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="MySQL">MySQL</option>
+            <option value="Oracle">Oracle</option>
+    </select> -->
+    
+        <!-- / -->
+
         <div class="row">
-            <!-- DEMO 1 Item-->
-            <div class="col-lg-6 mb-3 mb-lg-0">
-                <div class="hover hover-1 text-white rounded"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786261/hoverSet-3_usk5ml.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-1-content px-5 py-4">
-                        <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span
-                                class="font-weight-light">Image </span>Caption</h3>
-                        <p class="hover-1-description font-weight-light mb-0">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
+            <!-- IMAGE-->
+            <div *ngFor="let voyage of voyages; let i = index;" class="col-lg-6 mb-3 mb-lg-0 separation">
+                <div  class="hover hover-1 text-white rounded">
+                    <!-- <img src="https://res.cloudinary.com/mhmd/image/upload/v1570786261/hoverSet-3_usk5ml.jpg" alt=""> -->
+                    <!-- <img *ngIf="voyage.imageURL" [src]="'assets/'+ voyage.imageURL"> -->
+                    <a [routerLink]="['/voyage-details', voyage.id]" style="color:  #fafafa;">
+                    <img src="assets/image1.png">
+                    <!-- <img *ngIf="!voyage.imageURL" src="assets/default-image.png"> -->
+                        <div class="hover-overlay"></div>
+                        <div class="hover-1-content px-5 py-4">
+                            <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span
+                                    class="font-weight-light"> Destination </span>{{voyage.region}}</h3>
+                            <p class="hover-1-description font-weight-light mb-0">{{voyage.descriptif}}</p>
+                        </div>
+                    </a>
                     </div>
-                </div>
+                
             </div>
             <!-- DEMO 1 Item-->
             <div class="col-lg-6">
@@ -40,106 +64,6 @@
         </div>
     </div>
 
-    <!-- DEMO 1 -->
-    <div class="py-5">
-        <h3 class="font-weight-bold mb-0">Demo 1</h3>
-        <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <div class="row">
-            <!-- DEMO 1 Item-->
-            <div class="col-lg-6 mb-3 mb-lg-0">
-                <div class="hover hover-1 text-white rounded"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786261/hoverSet-3_usk5ml.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-1-content px-5 py-4">
-                        <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span
-                                class="font-weight-light">Image </span>Caption</h3>
-                        <p class="hover-1-description font-weight-light mb-0">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- DEMO 1 Item-->
-            <div class="col-lg-6">
-                <div class="hover hover-1 text-white rounded"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786257/hoverSet-4_fbtjks.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-1-content px-5 py-4">
-                        <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span
-                                class="font-weight-light">Image </span>Caption</h3>
-                        <p class="hover-1-description font-weight-light mb-0">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- DEMO 1 -->
-    <div class="py-5">
-        <h3 class="font-weight-bold mb-0">Demo 1</h3>
-        <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <div class="row">
-            <!-- DEMO 1 Item-->
-            <div class="col-lg-6 mb-3 mb-lg-0">
-                <div class="hover hover-1 text-white rounded"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786261/hoverSet-3_usk5ml.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-1-content px-5 py-4">
-                        <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span
-                                class="font-weight-light">Image </span>Caption</h3>
-                        <p class="hover-1-description font-weight-light mb-0">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- DEMO 1 Item-->
-            <div class="col-lg-6">
-                <div class="hover hover-1 text-white rounded"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786257/hoverSet-4_fbtjks.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-1-content px-5 py-4">
-                        <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span
-                                class="font-weight-light">Image </span>Caption</h3>
-                        <p class="hover-1-description font-weight-light mb-0">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- DEMO 1 -->
-    <div class="py-5">
-        <h3 class="font-weight-bold mb-0">Demo 1</h3>
-        <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <div class="row">
-            <!-- DEMO 1 Item-->
-            <div class="col-lg-6 mb-3 mb-lg-0">
-                <div class="hover hover-1 text-white rounded"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786261/hoverSet-3_usk5ml.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-1-content px-5 py-4">
-                        <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span
-                                class="font-weight-light">Image </span>Caption</h3>
-                        <p class="hover-1-description font-weight-light mb-0">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- DEMO 1 Item-->
-            <div class="col-lg-6">
-                <div class="hover hover-1 text-white rounded"><img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1570786257/hoverSet-4_fbtjks.jpg" alt="">
-                    <div class="hover-overlay"></div>
-                    <div class="hover-1-content px-5 py-4">
-                        <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span
-                                class="font-weight-light">Image </span>Caption</h3>
-                        <p class="hover-1-description font-weight-light mb-0">Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 
 </div>

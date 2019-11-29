@@ -10,12 +10,14 @@ import { FooterComponent } from './voyage/components/footer/footer.component';
 import { DeviceBgDirective } from './device-bg.directive';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './voyage/components/carousel/carousel.component';
+import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VoyageComponent,
     VoyageListeComponent,
+    VoyagesDetailsComponent,
     NavbarComponent,
     FooterComponent,
     DeviceBgDirective,
