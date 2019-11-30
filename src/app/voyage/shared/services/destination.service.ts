@@ -33,9 +33,9 @@ export class DestinationService {
         
   // private datesVoyages = new DatesVoyages(1, new Date(),new Date(), 200, 10, 0, 0, "image1.png");
   private datesVoyages = [
-    new DatesVoyages(1, new Date(), new Date(), 500, 9, 0, 0, "une image", "london", 1),
-    new DatesVoyages(2, new Date(), new Date(), 1000, 9, 0, 0, "une image", "Paris", 3),
-    new DatesVoyages(3, new Date(), new Date(), 40, 9, 0, 0, "une image", "Cracovie", 4)
+    new DatesVoyages(1, new Date(), new Date(), 500, 9, 0, 0, 1, "london", "canada_1.jpg"),
+    new DatesVoyages(2, new Date(), new Date(), 1000, 9, 0, 0, 3, "Paris", "guadeloupe_2.jpg"),
+    new DatesVoyages(3, new Date(), new Date(), 40, 9, 0, 0, 4,"Cracovie", "saint-barth_2.jpg")
   ];
   
   // getAllDestinationsMoinsCher():Promise<DatesVoyages[]>{
@@ -50,12 +50,12 @@ export class DestinationService {
     return this.httpClient.get<DatesVoyages[]>('destinations/uniques');
   }
 
-  // getAllDestinationsMoinsCher(): Observable<DatesVoyages[]>{
-  //   return of(this.datesVoyages);
-  // }
-
   // getAllDestinationsMoinsCher(){
   //   return this.httpClient.get<DatesVoyages[]>('destinations/uniques').map((res: Response) => res.json())
   // }
+
+  getDestinationById(id): Observable<Destination>{
+    return this.httpClient.get<Destination>(`/destinations/${id}`);
+  }
 
 }

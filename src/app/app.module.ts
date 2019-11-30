@@ -12,6 +12,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './voyage/components/carousel/carousel.component';
 import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
 import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataServiceService } from 'src/app/in-memory-data-service.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,13 @@ import { DestinationDetailsComponent } from './voyage/components/destination-det
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  //   HttpClientInMemoryWebApiModule.forRoot(
+  //     InMemoryDataServiceService, {dataEncapsulation:false} 
+  // ),
   ],
   providers: [],
   bootstrap: [AppComponent]
