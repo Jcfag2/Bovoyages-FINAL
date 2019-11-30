@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, AfterViewInit } from '@angular/core';
-import { Voyage } from '../../shared/voyage';
+import { Voyage } from '../../shared/entities/voyage';
 
 
 @Component({

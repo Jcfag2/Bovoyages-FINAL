@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Voyage } from '../../shared/voyage';
-import { VoyageService } from '../../shared/voyage.service';
+import { Voyage } from '../../shared/entities/voyage';
+import { VoyageService } from '../../shared/services/voyage.service';
+import { DatesVoyages } from '../../shared/entities/datesVoyages';
+import { DestinationService } from '../../shared/services/destination.service';
+import { Observable, of } from 'rxjs';
+
 declare var $: any;
 
 @Component({
@@ -9,22 +13,19 @@ declare var $: any;
   styleUrls: ['./voyage-liste.component.css']
 })
 export class VoyageListeComponent implements OnInit {
-  voyages: Voyage[];
+  datesVoyages: DatesVoyages[];
 
-  constructor(private voyageService: VoyageService) { }
+  constructor(private destinationService: DestinationService) { }
 
   ngOnInit() {
-    // this.voyageService.getVoyages().subscribe(
-    //   (voyage) => {
-    //     this.voyages = voyage
-    //   },
-    //   (err) => this.loggerService.logError(err)
-    // )
-   this.voyageService.getVoyages().then(
-     (voyages) => {
-       this.voyages = voyages;
-     }
-   )
+    this.destinationService.getAllDestinationsMoinsCher().subscribe(
+      (datesVoyages) => { this.datesVoyages = datesVoyages}
+    )
+    console.log(this.datesVoyages);
+
+  //  this.destinationService.getAllDestinationsMoinsCher().subscribe(
+  //    (datesVoyages) => { this.datesVoyages = datesVoyages}
+  //  )
 
   //  $('select').selectpicker();
 

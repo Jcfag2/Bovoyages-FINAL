@@ -4,6 +4,7 @@ import { CarouselComponent } from './voyage/components/carousel/carousel.compone
 import { VoyageListeComponent } from './voyage/pages/voyage-liste/voyage-liste.component';
 import { VoyageComponent } from './voyage/pages/voyage/voyage.component';
 import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
+import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
     path: 'voyages', component: VoyageComponent
    },
    {
-    path: 'voyage-details/:id', component: VoyagesDetailsComponent
+    path: 'destination-details/:id', component: DestinationDetailsComponent
    },
   {
    path: '**', redirectTo: 'home' //ou 'page-not-found'

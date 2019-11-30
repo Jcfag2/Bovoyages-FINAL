@@ -11,6 +11,7 @@ import { DeviceBgDirective } from './device-bg.directive';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './voyage/components/carousel/carousel.component';
 import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
+import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voy
     NavbarComponent,
     FooterComponent,
     DeviceBgDirective,
-    CarouselComponent
+    CarouselComponent,
+    DestinationDetailsComponent
   ],
   imports: [
     BrowserModule,
