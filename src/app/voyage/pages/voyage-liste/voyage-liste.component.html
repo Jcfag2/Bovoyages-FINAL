@@ -36,8 +36,10 @@
                     <a [routerLink]="['/destination-details', dateVoyage.fk_destination]" style="color: #fafafa;">
                         <!-- <a [routerLink]="[]" style="color:  #fafafa;"> -->
                     
-                    <img *ngIf="dateVoyage.imageURL" [src]="'http://127.0.0.1:8081/'+ dateVoyage.imageURL">
-                    <img *ngIf="!dateVoyage.imageURL" src="http://127.0.0.1:8081/default-image.png">
+                    <!-- <img *ngIf="dateVoyage.imageURL" [src]="'http://127.0.0.1:8081/'+ dateVoyage.imageURL"> -->
+                    <!-- <img *ngIf="!dateVoyage.imageURL" src="http://127.0.0.1:8081/default-image.png"> -->
+                    <img *ngIf="dateVoyage.imageURL" [src]="'http://192.168.1.46:8080/'+ dateVoyage.imageURL">
+                    <img *ngIf="!dateVoyage.imageURL" src="http://192.168.1.46:8080/default-image.png">
                         <div class="hover-overlay"></div>
                         <div class="hover-1-content px-5 py-4">
                             <h3 class="hover-1-title text-uppercase font-weight-bold mb-0" style="text-shadow: 1px 1px 1px #424242"> <span

@@ -10,13 +10,32 @@
 
             <div class="picsum-img-wrapper">
                 <!-- <img [src]="img" alt="images d'une destination"> -->
-                <img [src]="'http://127.0.0.1:8081/'+img" alt="images d'une destination"
-                    style="width: 100%; height: 100%;">
-
+                <!-- <img [src]="'http://127.0.0.1:8081/'+img" alt="images d'une destination"
+                    style="width: 100%; height: 100%;"> -->
+                    
+                <img [src]="'http://192.168.1.46:8080/'+img" alt="images d'une destination"
+                style="width: 100%; height: 100%;">
             </div>
 
         </ng-template>
     </ngb-carousel>
+    <hr>
+    <div class="row py-5">
+            <div class="col-lg-8 mx-auto">
+        
+              <div class="card mb-4">
+                <div class="card-body p-5">
+                  <h4 class="mb-4">Description de la destination</h4>
+                  <div class="custom-scrollbar-css p-2">
+                    <p class="font-italic">
+                        {{destination?.descriptif}} <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, soluta, cupiditate. Ad ab, delectus impedit similique voluptate fuga nemo iure, nobis dolorem dolor, quia voluptas aperiam doloremque commodi id? In? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+
 
     <hr>
 
@@ -25,21 +44,21 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>Domains</b></h2>
+                        <h2><b>Trouvez vos dates de voyages :</b></h2>
                     </div>
                     <div class="col-sm-6">
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-info active">
-                                <input type="radio" name="status" value="all" checked="checked"> All
+                                <input type="radio" name="status" value="all" checked="checked"> Tout
                             </label>
                             <label class="btn btn-success">
-                                <input type="radio" name="status" value="active"> Active
+                                <input type="radio" name="status" value="active"> Actif
                             </label>
                             <label class="btn btn-warning">
-                                <input type="radio" name="status" value="inactive"> Inactive
+                                <input type="radio" name="status" value="inactive"> Plus que quelques places
                             </label>
                             <label class="btn btn-danger">
-                                <input type="radio" name="status" value="expired"> Expired
+                                <input type="radio" name="status" value="expired"> Expiré
                             </label>
                         </div>
                     </div>
@@ -51,21 +70,38 @@
                         <th>#</th>
                         <th>Dates Aller</th>
                         <th>Dates Retour</th>
+                        <th>Prix HT</th>
+                        <th>Promotion</th>
                         <th>Status</th>
-                        <th>Server&nbsp;Location</th>
-                        <th>Action</th>
+                        <th>Commander</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-status="active">
-                        <td>1</td>
-                        <td>Du {{destination?.datesVoyages[0].dateAller}}</td>
-                        <td>Au </td>
+                    <div *ngIf="destination$ | async as destination;  else loading">
+                    <!-- <div *ngFor="let dv of destination?.datesVoyages"> -->
+                    <tr data-status="active" *ngFor="let dv of destination?.datesVoyages | async ; let i = index;">
+                        <td>{{ i }}</td>
+                        <td *ngFor="let dateAller of dv?.dateAller | async ;">Du {{dateAller}}</td>
+                        <td *ngFor="let dateRetour of dv?.dateRetour | async ;">Au {{dateRetour}}</td>
+                        <td>{{tarifUnitaireHT}}</td>
+                        <td>{{promotion}}</td>
                         <td><span class="label label-success">Active</span></td>
-                        <td>Buenos Aires</td>
                         <td><a href="#" class="btn btn-sm manage">Commander ce voyage</a></td>
                     </tr>
-                    <tr data-status="inactive">
+                    <!-- </div> -->
+                     </div>
+                    <ng-template #loading>
+                            Loading destination...
+                    </ng-template>
+                    <!-- <ng-template #loadingOrError>
+                            <div *ngIf="errorLoading$ | async; else loading">
+                              Error loading the list of users. Please try again later.
+                            </div>
+                            <ng-template #loading>
+                              Loading users...
+                            </ng-template>
+                    </ng-template> -->
+                    <!-- <tr data-status="inactive">
                         <td>2</td>
                         <td><a href="#">quisquamut.net</a></td>
                         <td>05/08/2014</td>
@@ -96,7 +132,7 @@
                         <td><span class="label label-warning">Inactive</span></td>
                         <td>Germany</td>
                         <td><a href="#" class="btn btn-sm manage">Manage</a></td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>

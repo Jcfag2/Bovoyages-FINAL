@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DestinationService } from '../../shared/services/destination.service';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { Subject } from 'rxjs';
 declare var $: any;
 
 @Component({
@@ -14,22 +15,33 @@ declare var $: any;
 export class DestinationDetailsComponent implements OnInit {
   @Input() destination:Destination;
   images = ["monimage.jpg", "lalaa.png"];
+  loadingError$ = new Subject<boolean>();
+  private sub;
+  public error;
+  private subscriptions: any =[]; 
 
 
   constructor(private destinationService: DestinationService, private activatedRoute: ActivatedRoute, private router: Router) { }
   
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(
+   this.sub = this.activatedRoute.paramMap.subscribe(
       (map)=> {
         const id = +map.get('id');
         this.destinationService.getDestinationById(id).subscribe(
-          destination => this.destination = destination
-        
+          destination => {
+            this.destination = destination;
+            Object.assign({}, [this.destination]);
+            // JSON.stringify(this.destination)
+            // this.subscriptions = this.destination;
+            console.log(this.destination)
+          },
+            error => console.log(" Error is : " + error),
+            () => console.log("finished")
           );
-        }
-        )
-        console.log(this.destination);
+        console.log(this.sub);
+      }
+    )
 
         $(document).ready(function(){
           $(".btn-group .btn").click(function(){

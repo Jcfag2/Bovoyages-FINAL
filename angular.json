@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "C:/workspace-spring-ln/Bovoyages-FINAL-Front-Office/src/main/resources/static",
+            "outputPath": "/home/hesa/eclipse-workspace-spring/Bovoyages-FINAL-Front-Office/src/main/resources/static",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
