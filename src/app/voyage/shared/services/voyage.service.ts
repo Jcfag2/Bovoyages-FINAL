@@ -23,8 +23,13 @@ export class VoyageService {
   //   new Voyage(1, "Paris", "C'est cool quand les gens ne ralent pas trop", this.datesVoyages, this.client, this.voyageurs),
   //   new Voyage(1, "Cracovie", "la famille", this.datesVoyages, this.client, this.voyageurs)
   // ];
+  private url = "http://localhost:7070";
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+  createVoyage(voyage:Voyage): Observable<Voyage>{
+    return this.httpClient.post<Voyage>(this.url+"/voyage/new", voyage);
+  }
   // client = new Client(client.id, client.name);
 
   //=> GET localhost:4200/

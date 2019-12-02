@@ -22,7 +22,7 @@ const routes: Routes = [
     path: 'voyages', component: VoyageComponent
    },
    {
-    path: 'destination-details/:id', component: DestinationDetailsComponent, canActivate: [ AuthGuardService ]
+    path: 'destination-details/:id', component: DestinationDetailsComponent
    },
    {
     path: 'voyage-creation/:id', component: VoyageCreationComponent

@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DestinationService {
 
-  private url = "";
+  private url = "http://localhost:7070";
   // private client = new Client(1, "raoul");
   // private voyageurs = new Voyageur(1, "M", "Jean", "Robert", new Date());
   // private voyages = [
@@ -47,7 +47,7 @@ export class DestinationService {
 
   getAllDestinationsMoinsCher(): Observable<DatesVoyages[]>{
     // return of(this.datesVoyages);
-    return this.httpClient.get<DatesVoyages[]>('destinations/uniques');
+    return this.httpClient.get<DatesVoyages[]>(this.url+'/destinations/uniques');
   }
 
   // getAllDestinationsMoinsCher(){
@@ -55,12 +55,12 @@ export class DestinationService {
   // }
 
   getDestinationById(id): Observable<Destination>{
-    return this.httpClient.get<Destination>(`/destinations/${id}`);
+    return this.httpClient.get<Destination>(this.url+`/destinations/${id}`);
   }
 
   
   getdatesVoyages(id): Observable<DatesVoyages>{
-    return this.httpClient.get<DatesVoyages>(`datesvoyages/${id}`);
+    return this.httpClient.get<DatesVoyages>(this.url+`datesvoyages/${id}`);
   }
 
 }

@@ -13,7 +13,7 @@ import { CarouselComponent } from './voyage/components/carousel/carousel.compone
 import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
 import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
 import { CustomFormsModule } from 'ng2-validation'
 import { LoginComponent } from './voyage/pages/login/login.component';
@@ -33,8 +33,7 @@ import { LoginComponent } from './voyage/pages/login/login.component';
     CarouselComponent,
     DestinationDetailsComponent,
     VoyageCreationComponent,
-    LoginComponent,
-
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +42,9 @@ import { LoginComponent } from './voyage/pages/login/login.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CustomFormsModule
+    CustomFormsModule,
+    ReactiveFormsModule,
+    FormsModule
   //   HttpClientInMemoryWebApiModule.forRoot(
   //     InMemoryDataServiceService, {dataEncapsulation:false} 
   // ),

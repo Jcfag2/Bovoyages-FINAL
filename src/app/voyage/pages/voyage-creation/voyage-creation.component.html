@@ -6,11 +6,15 @@
         <!-- Gradient divider -->
         <hr data-content="ET" class="hr-text">
     </div>
+    <div>
+        <p><label> Civilité : </label><span style="margin-right: 10px;" [innerHTML]="displayCivilite"></span><label>Nom : </label><span style="margin-right: 10px;" [innerHTML]="displayNom"></span><label> Prénom : </label> <span style="margin-right: 10px;" [innerHTML]="displayPrenom"></span><label> Date de naissance : </label><span style="margin-right: 10px;" [innerHTML]="displayDateNaissance"></span></p>
+
+    </div>
 
     <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-group">
         
     </form> -->
-    <h4>Ajouter un participant</h4>
+    <!-- <h4>Ajouter un participant</h4>
     <div class="row">
         <div class="input-group" style="width:25%">
             <span class="input-group-btn">
@@ -21,26 +25,29 @@
                 <button class="btn btn-red btn-pluss btn-default" type="button">+</button>
             </span>
         </div>
-    </div>
+    </div> -->
 
     <table class="table table-striped">
         <tbody>
             <tr>
                 <td colspan="1">
-                    <form class="form-horizontal" method="post">
-                    <!-- <form class="form-horizontal" method="post" #f="ngForm" (ngSubmit)="onSubmit(f)"> -->
+                    <!-- <form class="form-horizontal" method="post" > -->
+                    <form [formGroup]="form" class="form-horizontal" method="post" #f="ngForm" (ngSubmit)="onSubmit(form)">
                         <fieldset>
                             <legend>Entrez les informations du participant</legend>
+                            <!-- <div formArrayName="participants"> -->
+                            <!-- <div *ngFor="let control of participants?.controls; let i=index;"> -->
+                            <!-- <div [formGroupName] = "i"> -->
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Civilité</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         <span style="margin-right: 10px;"><i class="fa fa-user fa-2x"
                                         aria-hidden="true"></i></span>
-                                        <select class="selectpicker form-control" required ngModel>
-                                            <option value="Mme">Mme</option>
-                                            <option value="Mlle">Mlle</option>
-                                            <option value="M">M</option>
+                                        <select formControlName="civilite" class="form-control" required ngModel>
+                                        <option value="">veuillez choisir une civilité</option>
+                                        <option *ngFor="let opt of opts" [value]="opt">{{ opt }}
+                                        </option>
                                         </select>
                                     </div>
                                 </div>
@@ -51,7 +58,7 @@
                                         <div class="input-group">
                                             <span style="margin-right: 10px;">
                                                     <i class="fa fa-user fa-2x" aria-hidden="true"></i></span>
-                                                    <input id="prenom" name="prenom"
+                                                    <input formControlName="prenom" id="prenom" name="prenom"
                                                 placeholder="Prénom" class="form-control" required="true" value=""
                                                 type="text" required ngModel>
                                         </div>
@@ -64,7 +71,7 @@
                                     <div class="input-group">
                                         <span style="margin-right: 10px;">
                                                 <i class="fa fa-user fa-2x" aria-hidden="true"></i></span>
-                                                <input id="nom" name="nom"
+                                                <input formControlName="nom" id="nom" name="nom"
                                             placeholder="Nom" class="form-control" required="true" value=""
                                             type="text" required ngModel>
                                     </div>
@@ -76,17 +83,19 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span style="margin-right: 10px;"><i
                                                 class="fa fa-birthday-cake fa-2x" aria-hidden="true"></i></span>
-                                                <input id="dateNaissance"
+                                                <input formControlName="dateNaissance" id="dateNaissance"
                                             name="dateNaissance" placeholder="Date de naissance" class="form-control"
                                             required="true" type="date" value="" required ngModel></div>
                                 </div>
                                 
                             </div>
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Ajouter un participant</button>
+                                <button (click)="addParticipants()" type="submit" class="btn btn-primary">Ajouter un participant</button>
                                 
                             </div>
-                            
+                            <!-- </div> -->
+                            <!-- </div>
+                            </div> -->
                             <button [disabled]="form.invalid" class="btn btn-primary pull-right" type="submit">Commander le voyage</button>
                         </fieldset>
                     </form>
