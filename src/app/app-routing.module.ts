@@ -5,12 +5,10 @@ import { VoyageListeComponent } from './voyage/pages/voyage-liste/voyage-liste.c
 import { VoyageComponent } from './voyage/pages/voyage/voyage.component';
 import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
 import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
-<<<<<<< HEAD
 import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
-=======
 import { AuthGuardService } from './auth-guard.service';
 import { LoginComponent } from './voyage/pages/login/login.component';
->>>>>>> jc
+
 
 
 const routes: Routes = [

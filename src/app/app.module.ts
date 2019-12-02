@@ -14,12 +14,10 @@ import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voy
 import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
 import { CustomFormsModule } from 'ng2-validation'
-=======
 import { LoginComponent } from './voyage/pages/login/login.component';
->>>>>>> jc
+
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataServiceService } from 'src/app/in-memory-data-service.service';
 
@@ -34,11 +32,9 @@ import { LoginComponent } from './voyage/pages/login/login.component';
     DeviceBgDirective,
     CarouselComponent,
     DestinationDetailsComponent,
-<<<<<<< HEAD
-    VoyageCreationComponent
-=======
+    VoyageCreationComponent,
     LoginComponent,
->>>>>>> jc
+
   ],
   imports: [
     BrowserModule,
