@@ -1,6 +1,6 @@
 <div class="container" style="margin: 100px;">
-    <p>Destination {{destination?.id}} {{destination?.region}} {{destination?.images[0]}}
-        {{destination?.datesVoyages[0].dateAller}}</p>
+    <!-- <p>Destination {{destination?.id}} {{destination?.region}} {{destination?.images[0]}}
+        {{destination?.datesVoyages[0].dateAller}}</p> -->
 
     <ngb-carousel #carousel interval="3000">
         <ng-template ngbSlide *ngFor="let img of destination?.images">
@@ -9,12 +9,11 @@
             </div>
 
             <div class="picsum-img-wrapper">
-                <!-- <img [src]="img" alt="images d'une destination"> -->
-                <!-- <img [src]="'http://127.0.0.1:8081/'+img" alt="images d'une destination"
-                    style="width: 100%; height: 100%;"> -->
+                <img [src]="'http://127.0.0.1:8081/'+img" alt="images d'une destination"
+                    style="width: 100%; height: 100%;">
                     
-                <img [src]="'http://127.0.0.1:8080/'+img" alt="images d'une destination"
-                style="width: 100%; height: 100%;">
+                <!-- <img [src]="'http://127.0.0.1:8080/'+img" alt="images d'une destination"
+                style="width: 100%; height: 100%;"> -->
             </div>
 
         </ng-template>
