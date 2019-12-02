@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
 import { CustomFormsModule } from 'ng2-validation'
 import { LoginComponent } from './voyage/pages/login/login.component';
+import { VoyageCommandesComponent } from './voyage/pages/voyage-commandes/voyage-commandes.component';
 
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataServiceService } from 'src/app/in-memory-data-service.service';
@@ -34,6 +35,7 @@ import { LoginComponent } from './voyage/pages/login/login.component';
     DestinationDetailsComponent,
     VoyageCreationComponent,
     LoginComponent,
+    VoyageCommandesComponent,
 
   ],
   imports: [

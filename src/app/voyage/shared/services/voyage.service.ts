@@ -14,29 +14,20 @@ import { Voyageur } from '../entities/voyageurs';
   providedIn: 'root'
 })
 export class VoyageService {
-  // private url = "";
-  // private datesVoyages = new DatesVoyages(1, new Date(),new Date(), 200, 10, 0, 0, "image1.png");
-  // private client = new Client(1, "raoul");
-  // private voyageurs = new Voyageur(1, "M", "Jean", "Robert", new Date());
-  // private voyages = [
-  //   new Voyage(1, "london", "il pleut un peu", this.datesVoyages, this.client, this.voyageurs),
-  //   new Voyage(1, "Paris", "C'est cool quand les gens ne ralent pas trop", this.datesVoyages, this.client, this.voyageurs),
-  //   new Voyage(1, "Cracovie", "la famille", this.datesVoyages, this.client, this.voyageurs)
-  // ];
+  client:Client;
 
-  constructor() { }
-  // client = new Client(client.id, client.name);
-
-  //=> GET localhost:4200/
-  // getVoyages(): Observable<Voyage> {
-  //   return this.httpClient.get<Voyage[]>(this.url).pipe(
-  //     map(result => result.map(voyage => new Voyage(voyage.id, voyage.region, voyage.descriptif, voyage.datesVoyages, voyage.client, voyage.voyageurs)))
-  //   );
-  // }
-  // getVoyages():Promise<Voyage[]>{
-  //   return new Promise<Voyage[]>( (resolve, reject)=> {
-  //     resolve (this.voyages);
-  //   })
-  // }
+  constructor(private httpClient: HttpClient) { }
+  
+  getClientByNom(): Observable<Client>{
+   const nom = localStorage.getItem('userName')
+    return this.httpClient.get<Client>('client/' + nom);
+  }
+  
+  getVoyagesClient(client:Client): Observable<Voyage[]>{
+    client = this.getClientByNom()
+    console.log(client);
+    return this.httpClient.post<Voyage[]>('voyage/client/all',client);
+  }
+  
 
 }
