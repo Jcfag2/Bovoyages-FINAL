@@ -12,10 +12,12 @@ export class UserService {
 
   constructor() { }
 
+
   getUser(): Observable<User> {
     return of(this.user);
   }
   setUser(user) {
     this.user = user;
   }
+
 }

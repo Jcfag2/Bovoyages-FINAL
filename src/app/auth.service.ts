@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserService } from './user.service';
@@ -9,22 +9,17 @@ import { UserService } from './user.service';
 export class AuthService {
   private isAuth = false;
   redirectUrl: string;
-
-
+  private LogInOut = "LogIn";
+  private userName = "Déconnecté";
+  @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
+  @Output() getLoggedInOut: EventEmitter<any> = new EventEmitter();
   constructor(private router: Router, private httpClient: HttpClient, private userService: UserService) { }
 
   isLoggedIn() {
-    this.isAuth = JSON.parse(localStorage.getItem('auth'));
+    this.isAuth = JSON.parse(localStorage.getItem('auth')); 
     return this.isAuth;
   }
 
- /* logIn(user) {
-        this.isAuth = true;
-        this.router.navigate(['/album'])
-        this.userService.setUser(user);
-        localStorage.setItem('auth','true');
-
-  }*/
    logIn(user, cb) {
     console.log(user.nom, user.password);
     const params = new HttpParams()
@@ -35,10 +30,12 @@ export class AuthService {
       (status) => {
         if(status) {
           this.isAuth = true  ;
-          
           this.router.navigate([this.redirectUrl])
-          this.userService.setUser(user);
         localStorage.setItem('auth','true');
+        localStorage.setItem('userName',user.nom);
+        localStorage.setItem('LogInOut','LogOut');
+        this.getLoggedInName.emit(user.nom);
+        this.getLoggedInOut.emit('LogOut');
           
         } else {
           cb("Identifiants incorrects")
@@ -53,8 +50,11 @@ export class AuthService {
   logOut() {
     this.isAuth = false;
     localStorage.removeItem('auth');
-    this.router.navigate(['/login']);
-
+    this.getLoggedInName.emit('Déconnecté');
+    this.getLoggedInOut.emit('LogIn');
+    localStorage.setItem('userName','Déconnecté');
+    localStorage.setItem('LogInOut','LogIn');
+    this.router.navigate(['/home']);
   }
 }
 

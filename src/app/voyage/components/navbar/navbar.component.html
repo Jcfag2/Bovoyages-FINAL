@@ -21,6 +21,10 @@
         <a class="nav-link" routerLinkActive="" routerLink="" (click)="isMenuCollapsed = true">Vos commandes</a>
       </li>
     </ul>
+  <button type="button" class="btn btn-light" (click)="onLogOut()">{{LogInOut}}</button>
+  <!-- *ngIf="isAuth" -->
+  <span class="badge badge-warning">{{userName}}</span>
+    <!-- <p class="my-2 my-sm-0">{{user.nom}}</p> -->
     <!-- Si isAuth est != de false => login -->
     <!-- <button class="btn btn-primary" type="button" (click)="onLogIn()" *ngIf="!isAuth">Log in</button>  -->
     <!-- <button class="btn btn-primary" type="button" (click)="onLogOut()" *ngIf="isAuth">Log out</button> -->
@@ -33,4 +37,5 @@
   </div>
   <!-- <app-user-component></app-user-component> -->
 </nav>
+
 <!-- Navbar End -->
