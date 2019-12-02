@@ -32,11 +32,11 @@ export class DestinationService {
         // }
         
   // private datesVoyages = new DatesVoyages(1, new Date(),new Date(), 200, 10, 0, 0, "image1.png");
-  private datesVoyages = [
-    new DatesVoyages(1, new Date(), new Date(), 500, 9, 0, 0, 1, "london", "canada_1.jpg"),
-    new DatesVoyages(2, new Date(), new Date(), 1000, 9, 0, 0, 3, "Paris", "guadeloupe_2.jpg"),
-    new DatesVoyages(3, new Date(), new Date(), 40, 9, 0, 0, 4,"Cracovie", "saint-barth_2.jpg")
-  ];
+  // private datesVoyages = [
+  //   new DatesVoyages(1, new Date(), new Date(), 500, 9, 0, 0, 1, "london", "canada_1.jpg"),
+  //   new DatesVoyages(2, new Date(), new Date(), 1000, 9, 0, 0, 3, "Paris", "guadeloupe_2.jpg"),
+  //   new DatesVoyages(3, new Date(), new Date(), 40, 9, 0, 0, 4,"Cracovie", "saint-barth_2.jpg")
+  // ];
   
   // getAllDestinationsMoinsCher():Promise<DatesVoyages[]>{
   //   return new Promise<DatesVoyages[]>( (resolve, reject) =>

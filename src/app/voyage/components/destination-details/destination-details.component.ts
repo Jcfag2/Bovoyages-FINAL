@@ -31,7 +31,7 @@ export class DestinationDetailsComponent implements OnInit {
         this.destinationService.getDestinationById(id).subscribe(
           destination => {
             this.destination = destination;
-            Object.assign({}, [this.destination]);
+            // Object.assign({}, [this.destination]);
             // JSON.stringify(this.destination)
             // this.subscriptions = this.destination;
             console.log(this.destination)
