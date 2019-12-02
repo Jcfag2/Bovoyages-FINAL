@@ -54,7 +54,7 @@
                                 <input type="radio" name="status" value="active"> Actif
                             </label>
                             <label class="btn btn-warning">
-                                <input type="radio" name="status" value="inactive"> Plus que quelques places
+                                <input type="radio" name="status" value="inactive"> Quelques places
                             </label>
                             <label class="btn btn-danger">
                                 <input type="radio" name="status" value="expired"> Expiré
@@ -79,13 +79,13 @@
                     <!-- <div *ngIf="destination$ | async as destination;  else loading"> -->
                     <!-- <div *ngFor="let dv of destination?.datesVoyages"> -->
                     <tr data-status="active" *ngFor="let dv of destination?.datesVoyages; let i = index;">
-                        <td>{{ i }}</td>
-                        <td>Du {{dv?.dateAller}}</td>
-                        <td>Au {{dv?.dateRetour}}</td>
-                        <td>{{dv?.tarifUnitaireHT}}</td>
+                        <td>{{i+1}}</td>
+                        <td>Du {{dv?.dateAller | date: 'dd/MM/yyyy'}}</td>
+                        <td>Au {{dv?.dateRetour | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{dv?.tarifUnitaireHT}} €</td>
                         <td>{{dv?.promotion}}</td>
                         <td><span class="label label-success">Active</span></td>
-                        <td><a href="#" class="btn btn-sm manage">Commander ce voyage</a></td>
+                        <td><a [routerLink]="['/voyage-creation', dv?.id]" class="btn btn-sm manage">Commander ce voyage</a></td>
                     </tr>
                     <!-- </div> -->
                      <!-- </div> -->

@@ -14,6 +14,8 @@ import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voy
 import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
+import { CustomFormsModule } from 'ng2-validation'
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataServiceService } from 'src/app/in-memory-data-service.service';
 
@@ -27,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     DeviceBgDirective,
     CarouselComponent,
-    DestinationDetailsComponent
+    DestinationDetailsComponent,
+    VoyageCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    CustomFormsModule
   //   HttpClientInMemoryWebApiModule.forRoot(
   //     InMemoryDataServiceService, {dataEncapsulation:false} 
   // ),

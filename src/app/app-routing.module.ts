@@ -5,6 +5,7 @@ import { VoyageListeComponent } from './voyage/pages/voyage-liste/voyage-liste.c
 import { VoyageComponent } from './voyage/pages/voyage/voyage.component';
 import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
 import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
+import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,9 @@ const routes: Routes = [
    },
    {
     path: 'destination-details/:id', component: DestinationDetailsComponent
+   },
+   {
+    path: 'voyage-creation/:id', component: VoyageCreationComponent
    },
   {
    path: '**', redirectTo: 'home' //ou 'page-not-found'

@@ -58,4 +58,9 @@ export class DestinationService {
     return this.httpClient.get<Destination>(`/destinations/${id}`);
   }
 
+  
+  getdatesVoyages(id): Observable<DatesVoyages>{
+    return this.httpClient.get<DatesVoyages>(`datesvoyages/${id}`);
+  }
+
 }
