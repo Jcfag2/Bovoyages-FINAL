@@ -14,6 +14,7 @@ import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voy
 import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './voyage/pages/login/login.component';
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataServiceService } from 'src/app/in-memory-data-service.service';
 
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     DeviceBgDirective,
     CarouselComponent,
-    DestinationDetailsComponent
+    DestinationDetailsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

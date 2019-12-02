@@ -5,9 +5,14 @@ import { VoyageListeComponent } from './voyage/pages/voyage-liste/voyage-liste.c
 import { VoyageComponent } from './voyage/pages/voyage/voyage.component';
 import { VoyagesDetailsComponent } from './voyage/components/voyages-details/voyages-details.component';
 import { DestinationDetailsComponent } from './voyage/components/destination-details/destination-details.component';
+import { AuthGuardService } from './auth-guard.service';
+import { LoginComponent } from './voyage/pages/login/login.component';
 
 
 const routes: Routes = [
+  {
+    path: 'login', component: LoginComponent
+  },
   {
     path: 'home', component: CarouselComponent
    },
@@ -15,7 +20,7 @@ const routes: Routes = [
     path: 'voyages', component: VoyageComponent
    },
    {
-    path: 'destination-details/:id', component: DestinationDetailsComponent
+    path: 'destination-details/:id', component: DestinationDetailsComponent, canActivate: [ AuthGuardService ]
    },
   {
    path: '**', redirectTo: 'home' //ou 'page-not-found'
