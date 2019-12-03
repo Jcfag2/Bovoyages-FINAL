@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VoyageComponent } from './voyage/pages/voyage/voyage.component';
@@ -17,7 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
 import { CustomFormsModule } from 'ng2-validation'
 import { LoginComponent } from './voyage/pages/login/login.component';
-import { VoyageCommandesComponent } from './voyage/pages/voyage-commandes/voyage-commandes.component';
+import { SignupComponent } from './voyage/pages/signup/signup.component';
+import { CheckPasswordDirective } from './voyage/pages/signup/check-password.directive';
+
 
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataServiceService } from 'src/app/in-memory-data-service.service';
@@ -35,7 +36,9 @@ import { VoyageCommandesComponent } from './voyage/pages/voyage-commandes/voyage
     DestinationDetailsComponent,
     VoyageCreationComponent,
     LoginComponent,
-    VoyageCommandesComponent,
+    SignupComponent,
+    CheckPasswordDirective,
+
 
   ],
   imports: [

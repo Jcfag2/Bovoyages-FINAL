@@ -24,7 +24,6 @@ export class VoyageService {
   }
   
   getVoyagesClient(client:Client): Observable<Voyage[]>{
-    client = this.getClientByNom()
     console.log(client);
     return this.httpClient.post<Voyage[]>('voyage/client/all',client);
   }
