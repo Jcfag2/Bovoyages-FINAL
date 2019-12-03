@@ -3,7 +3,7 @@ import { Destination } from '../../shared/entities/destination';
 import { DatesVoyages } from '../../shared/entities/datesVoyages';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DestinationService } from '../../shared/services/destination.service';
-import { FormGroup, NgForm, FormArray, FormControl, Validators } from '@angular/forms';
+import { FormGroup, NgForm, FormArray, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VoyageService } from '../../shared/services/voyage.service';
 import { Voyage } from '../../shared/entities/voyage';
 import { Voyageur } from '../../shared/entities/voyageurs';
@@ -17,9 +17,11 @@ declare var $: any;
 export class VoyageCreationComponent implements OnInit {
   @Input() datesVoyages : DatesVoyages;
   voyage:Voyage;
-  voyageurs:Voyageur[];
+  voyageurs:Voyageur[] = [];
+  voyageur:Voyageur = new Voyageur();
   form: FormGroup;
-  opts: string[] = [
+  error:string;
+  civilites: string[] = [
     'Mlle',
     'Mme',
     'M'
@@ -66,6 +68,7 @@ export class VoyageCreationComponent implements OnInit {
       this.nom =  new FormControl('', Validators.required),
       this.prenom = new FormControl('', Validators.required),
       this.dateNaissance =  new FormControl('', Validators.required)
+      
           // })
       // ])
     // })
@@ -73,32 +76,45 @@ export class VoyageCreationComponent implements OnInit {
 
   createForm() {
     this.form = new FormGroup({
-      civilite: this.civilite,
+      // civilite: this.civilites,
       nom: this.nom,
       prenom: this.prenom,
-      dateNaissance: this.dateNaissance
+      dateNaissance: this.dateNaissance,
+      civilite: this.civilite
     });
-    this.voyageurs.push();
+    // this.voyageurs.push();
   }
   
   onSubmit(form: NgForm){
     if(this.form.valid){
       console.warn(form.value);
       console.log("formulaire envoyé !");
-      // this.form.reset();
-      // new Voyageur(0, this.civilite, this.prenom, this.nom, this.dateNaissance)
-      // this.voyage.
+      // this.voyageService.createVoyageObject(this.voyageurs, )
       this.voyageService.createVoyage(this.voyage);
     }
 
   }
   
   addParticipants(){
-    console.log(this.form.value);
-    this.displayNom = this.nom.value;
-    this.displayPrenom = this.prenom.value;
-    this.displayCivilite = this.civilite.value;
-    this.displayDateNaissance = this.dateNaissance.value;
+    // console.log(form.value);
+    // this.voyageurs.push(voyageurs);
+    // return this;
+    // this.displayNom = this.nom.value;
+    // this.displayPrenom = this.prenom.value;
+    // this.displayCivilite = this.civilites.value;
+    // this.displayDateNaissance = this.dateNaissance.value;
+    // for(let i=0; i<voyageur.size; i++){
+    //   voyageur[i].nom = this.form.get('nom').value;
+    //   voyageur[i].prenom = this.form.get('prenom').value;
+    //   voyageur[i].dateNaissance = this.form.get('dateNaissance').value;
+    // }
+    // this.voyageService.createVoyageur(form.value);
+      // (error) => this.error = error
+    
+    this.voyageurs.push(this.voyageur);
+    // this.form.reset();
+    this.voyageur = new Voyageur();
+    console.log(this.voyageurs);
   }
 
    // $('.btn-minuse').on('click', function(){

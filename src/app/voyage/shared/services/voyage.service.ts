@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Voyage } from '../entities/voyage';
 import { map } from 'rxjs/operators';
@@ -24,12 +24,28 @@ export class VoyageService {
   //   new Voyage(1, "Cracovie", "la famille", this.datesVoyages, this.client, this.voyageurs)
   // ];
   private url = "http://localhost:7070";
+  voyage: Voyage = new Voyage();
 
   constructor(private httpClient: HttpClient) { }
 
-  createVoyage(voyage:Voyage): Observable<Voyage>{
+  createVoyage(voyage:Voyage): Observable<Voyage>{ 
     return this.httpClient.post<Voyage>(this.url+"/voyage/new", voyage);
   }
+
+
+  voyageur:Voyageur[];
+  createVoyageObject(voyageurs:Voyageur[], client:Client, datesVoyages:DatesVoyages){
+    this.voyage.voyageurs = voyageurs;
+    this.voyage.client = client;
+    this.voyage.dateVoyage = datesVoyages;
+    
+    // this.voyageur.nom = voyageurForm.nom;
+    // const params = new HttpParams().set('civilite', voyageur.civilite).set('nom', voyageur.nom).set('prenom', voyageur.prenom).set('dateNaissance', voyageur.dateNaissance);
+  }
+
+
+
+
   // client = new Client(client.id, client.name);
 
   //=> GET localhost:4200/

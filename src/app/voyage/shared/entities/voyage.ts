@@ -8,14 +8,11 @@ export class Voyage{
     descriptif:string;
     dateVoyage:DatesVoyages;
     client:Client;
-    voyageurs: Voyageur;
+    voyageurs: Voyageur[];
 
-    constructor(id:number, region:string, descriptif:string, dateVoyage: DatesVoyages, client:Client, voyageurs:Voyageur){
-        this.id = id;
-        this.region = region;
-        this.descriptif = descriptif;
-        this.dateVoyage = dateVoyage;
-        this.client = client;
-        this.voyageurs = voyageurs;
+   
+    constructor(values: Object = {}){
+        Object.assign(this, values);
     }
+    
 }
