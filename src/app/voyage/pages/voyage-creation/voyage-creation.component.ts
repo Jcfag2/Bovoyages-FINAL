@@ -98,9 +98,9 @@ export class VoyageCreationComponent implements OnInit {
   onSubmit(){
     // if(this.form.valid){
       console.warn("voyageurs : "+JSON.stringify(this.voyageurs));
-      this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages);
-      this.voyageService.createVoyage(this.voyage);
-      console.log("onSUbmit : "+JSON.stringify(this.voyage));
+     // this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages);
+      console.log("ce que je demande de créer : "+JSON.stringify(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages)));
+      this.voyageService.createVoyage(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages));
       console.log("formulaire envoyé !");
     // }
 
