@@ -19,6 +19,7 @@ declare var $: any;
 export class VoyageCreationComponent implements OnInit {
   @Input() datesVoyages : DatesVoyages;
   voyage:Voyage;
+  @Input() destination:Destination;;
   voyageurs:Voyageur[] = [];
   voyageur:Voyageur = new Voyageur();
   form: FormGroup;
@@ -68,6 +69,11 @@ export class VoyageCreationComponent implements OnInit {
       (client) => { this.client = client}
     )
 
+    this.destinationService.getDestinationById(this.datesVoyages.fk_destination).subscribe(
+      (destination) => { this.destination = destination},
+      () => console.log("uesh "+ this.destination)
+    )
+    
 
   }
 
@@ -99,9 +105,10 @@ export class VoyageCreationComponent implements OnInit {
     // if(this.form.valid){
       console.warn("voyageurs : "+JSON.stringify(this.voyageurs));
      // this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages);
-      console.log("ce que je demande de créer : "+JSON.stringify(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages)));
+      // console.log("ce que je demande de créer : "+JSON.stringify(this.voyageService.createVoyageObject(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages, this.destination.descriptif, this.destination.region));
       this.voyageService.createVoyage(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages));
       console.log("formulaire envoyé !");
+      // this.destination.descriptif, this.destination.region
     // }
 
   }

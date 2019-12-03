@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output } from '@angular/core';
 import { Destination } from '../../shared/entities/destination';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,7 +13,7 @@ declare var $: any;
   styleUrls: ['./destination-details.component.css']
 })
 export class DestinationDetailsComponent implements OnInit {
-  @Input() destination:Destination;
+  @Input() @Output() destination:Destination;
   images = ["monimage.jpg", "lalaa.png"];
   loadingError$ = new Subject<boolean>();
   private sub;

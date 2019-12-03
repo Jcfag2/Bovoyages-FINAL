@@ -8,6 +8,8 @@ import { resolve } from 'url';
 import { reject } from 'q';
 import { DatesVoyages } from '../entities/datesVoyages';
 import { Voyageur } from '../entities/voyageurs';
+import { DestinationService } from './destination.service';
+import { Destination } from '../entities/destination';
 
 
 @Injectable({
@@ -25,8 +27,11 @@ export class VoyageService {
   // ];
   voyage: Voyage = new Voyage();
   voyageur:Voyageur[];
+  destination:Destination;
+  datesVoyages:DatesVoyages;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private destinationService: DestinationService) {}
+   
 
   createVoyage(voyage:Voyage){ 
     console.log("le voyage reçu par createVoyage "+JSON.stringify(this.voyage));
@@ -44,9 +49,12 @@ export class VoyageService {
 
 
   createVoyageObject(voyageurs:Voyageur[], client:Client, datesVoyages:DatesVoyages){
+    
     this.voyage.voyageurs = voyageurs;
     this.voyage.client = client;
     this.voyage.dateVoyage = datesVoyages;
+    this.voyage.descriptif = "test descriptif";
+    this.voyage.region = "london";
     console.log("createVoyageObject "+JSON.stringify(this.voyage));
     return this.voyage;
     // this.voyageur.nom = voyageurForm.nom;
