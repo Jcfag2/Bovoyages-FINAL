@@ -67,6 +67,8 @@ export class VoyageCreationComponent implements OnInit {
     this.clientService.getClientByNom(localStorage.getItem('userName')).subscribe(
       (client) => { this.client = client}
     )
+
+
   }
 
   createFormControls() {
@@ -85,7 +87,6 @@ export class VoyageCreationComponent implements OnInit {
 
   createForm() {
     this.form = new FormGroup({
-      // civilite: this.civilites,
       nom: this.nom,
       prenom: this.prenom,
       dateNaissance: this.dateNaissance,
@@ -94,13 +95,14 @@ export class VoyageCreationComponent implements OnInit {
     // this.voyageurs.push();
   }
   
-  onSubmit(form: NgForm){
-    if(this.form.valid){
-      console.warn(form.value);
-      console.log("formulaire envoyé !");
+  onSubmit(){
+    // if(this.form.valid){
+      console.warn("voyageurs : "+JSON.stringify(this.voyageurs));
       this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages);
       this.voyageService.createVoyage(this.voyage);
-    }
+      console.log("onSUbmit : "+JSON.stringify(this.voyage));
+      console.log("formulaire envoyé !");
+    // }
 
   }
   

@@ -24,20 +24,24 @@ export class VoyageService {
   //   new Voyage(1, "Cracovie", "la famille", this.datesVoyages, this.client, this.voyageurs)
   // ];
   voyage: Voyage = new Voyage();
+  voyageur:Voyageur[];
 
   constructor(private httpClient: HttpClient) { }
 
-  createVoyage(voyage:Voyage): Observable<Voyage>{ 
-    return this.httpClient.post<Voyage>("/voyage/new", voyage);
+  createVoyage(voyage:Voyage){ 
+    console.log("createVoyage "+JSON.stringify(this.voyage));
+    voyage = this.voyage;
+    console.log("createVoyage "+ JSON.stringify(voyage));
+     this.httpClient.post<Voyage>("/voyage/new", voyage);
+     return this.httpClient.post<Voyage>("/voyage/new", voyage);
   }
 
 
-  voyageur:Voyageur[];
   createVoyageObject(voyageurs:Voyageur[], client:Client, datesVoyages:DatesVoyages){
     this.voyage.voyageurs = voyageurs;
     this.voyage.client = client;
     this.voyage.dateVoyage = datesVoyages;
-    
+    console.log("createVoyageObject "+JSON.stringify(this.voyage));
     // this.voyageur.nom = voyageurForm.nom;
     // const params = new HttpParams().set('civilite', voyageur.civilite).set('nom', voyageur.nom).set('prenom', voyageur.prenom).set('dateNaissance', voyageur.dateNaissance);
   }
