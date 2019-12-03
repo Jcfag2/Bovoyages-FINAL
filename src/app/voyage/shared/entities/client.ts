@@ -1,8 +1,8 @@
 export class Client{
     id:number;
-    name:string;
+    name:String;
 
-    constructor(id:number, name:string){
+    constructor(id:number, name:String){
         this.id = id;
         this.name = name;
     }

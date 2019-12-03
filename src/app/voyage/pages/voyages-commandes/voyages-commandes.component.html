@@ -1,0 +1,29 @@
+<br>
+<br>
+<br>
+<p>{{client}}</p>
+<p>{{client.name}}</p>
+<p>{{voyages}}</p>
+<p>{{voyages}}</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>region</th>
+            <th>dateAller</th>
+            <th>dateRetour</th>
+            <th>prixTotalHT</th>
+            <th>detail du voyage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let voyage of voyages; let i = index;">
+            <td>{{i+1}}</td>
+            <td>{{voyage?.region}}</td>
+            <td>{{voyage?.dateVoyage.dateAller}}</td>
+            <td>{{voyage?.dateVoyage.dateRetour}}</td>
+            <td>{{voyage?.prixTotalHT}}€</td>
+            <td><a class="nav-link" routerLink="/voyages-commandes-detail" [region]=voyage?.region>Modifier</a></td>
+        </tr>
+    </tbody>
+</table>

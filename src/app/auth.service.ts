@@ -20,39 +20,6 @@ export class AuthService {
     return this.isAuth;
   }
 
-  signUp(user,cb){
-    const params = new HttpParams()
-    .set('nom',user.nom)
-    .set('password',user.passwords.passwordA);
-    this.httpClient.post('user/new', params).subscribe(
-      (status) => {
-        if(status) {
-          this.httpClient.post('connexion', params).subscribe(
-            (status) => {
-              if(status) {
-                this.isAuth = true  ;
-                this.router.navigate([this.redirectUrl])
-              localStorage.setItem('auth','true');
-              localStorage.setItem('userName',user.nom);
-              localStorage.setItem('LogInOut','LogOut');
-              this.getLoggedInName.emit(user.nom);
-              this.getLoggedInOut.emit('LogOut');
-                
-              } else {
-                cb("Identifiants incorrects")
-              }
-      
-            },
-            (err) => cb("Identifiants incorrects")
-          );
-        } else {
-          cb("Le nom d'utilisateur choisi est déjà pris, merci de renseigner un autre nom d'utilisateur.")
-        }
-      },
-      (err) => cb("Le nom d'utilisateur choisi est déjà pris, merci de renseigner un autre nom d'utilisateur.")
-    );
-  }
-
    logIn(user, cb) {
     console.log(user.nom, user.password);
     const params = new HttpParams()

@@ -8,8 +8,8 @@ import { DestinationDetailsComponent } from './voyage/components/destination-det
 import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
 import { AuthGuardService } from './auth-guard.service';
 import { LoginComponent } from './voyage/pages/login/login.component';
-import { SignupComponent } from './voyage/pages/signup/signup.component';
-
+import { VoyagesCommandesComponent } from './voyage/pages/voyages-commandes/voyages-commandes.component';
+import { VoyagesCommandesDetailComponent } from './voyage/pages/voyages-commandes-detail/voyages-commandes-detail.component';
 
 
 
@@ -24,13 +24,16 @@ const routes: Routes = [
     path: 'voyages', component: VoyageComponent
    },
    {
-    path: 'destination-details/:id', component: DestinationDetailsComponent
+    path: 'destination-details/:id', component: DestinationDetailsComponent, canActivate: [ AuthGuardService ]
    },
    {
-    path: 'voyage-creation/:id', component: VoyageCreationComponent, canActivate: [ AuthGuardService ]
+    path: 'voyage-creation/:id', component: VoyageCreationComponent
    },
    {
-    path: 'signup', component: SignupComponent,
+    path: 'voyages-commandes', component: VoyagesCommandesComponent
+   },
+   {
+    path: 'voyages-commandes-detail', component: VoyagesCommandesDetailComponent
    },
   {
    path: '**', redirectTo: 'home' //ou 'page-not-found'
