@@ -1,0 +1,33 @@
+<br><br><br><br>
+<div class="centrer"><h2>Création d'un compte utilisateur:</h2></div>
+<br>
+<div class="container form-group">
+    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+        <label>Nom d'utilisateur:</label>
+        <input type="text" ngModel name="nom" id ="nom" class="form-control" placeholder="Nom d'utilisateur" required>
+       <br>
+        <div ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Mot de passe:</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe" #passwordA="ngModel" name="passwordA"
+				 required id="passwordA" [(ngModel)]="password1">
+			</div>
+			<div class="form-group mt-1">
+				<label for="exampleInputPassword2">Retapez votre mot de passe:</label>
+				<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Retapez votre mot de passe" #passwordB="ngModel" name="passwordB"
+				 required id="passwordB" [(ngModel)]="password2">
+			</div>
+		</div>
+		<div *ngIf="passwordB.invalid && (passwordA.dirty || passwordA.touched)" class="alert alert-danger">
+			Veuillez confirmer votre mot de passe.
+		</div>
+		<div *ngIf="passwords.errors?.passwordCheck && (passwordB.dirty || passwordB.touched)" class="alert alert-danger">
+			Les mots de passe sont différents.
+		</div>
+        
+        <br>
+        <p *ngIf="error">{{error}}</p>
+        <button class="btn btn-primary" type="submit" [disabled]="passwords.invalid">Créer le compte</button>
+    </form>
+</div>
+<br><br><br>

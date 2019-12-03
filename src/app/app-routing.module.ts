@@ -10,6 +10,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { LoginComponent } from './voyage/pages/login/login.component';
 import { VoyagesCommandesComponent } from './voyage/pages/voyages-commandes/voyages-commandes.component';
 import { VoyagesCommandesDetailComponent } from './voyage/pages/voyages-commandes-detail/voyages-commandes-detail.component';
+import { SignupComponent } from './voyage/pages/signup/signup.component';
 
 
 
@@ -34,6 +35,9 @@ const routes: Routes = [
    },
    {
     path: 'voyages-commandes-detail', component: VoyagesCommandesDetailComponent
+   },
+   {
+    path: 'signup', component: SignupComponent,
    },
   {
    path: '**', redirectTo: 'home' //ou 'page-not-found'
