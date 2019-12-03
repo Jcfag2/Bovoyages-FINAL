@@ -27,7 +27,7 @@ const routes: Routes = [
     path: 'destination-details/:id', component: DestinationDetailsComponent
    },
    {
-    path: 'voyage-creation/:id', component: VoyageCreationComponent
+    path: 'voyage-creation/:id', component: VoyageCreationComponent, canActivate: [ AuthGuardService ]
    },
    {
     path: 'voyages-commandes', component: VoyagesCommandesComponent

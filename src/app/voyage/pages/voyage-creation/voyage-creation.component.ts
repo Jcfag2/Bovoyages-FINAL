@@ -7,6 +7,8 @@ import { FormGroup, NgForm, FormArray, FormControl, Validators, FormsModule, Rea
 import { VoyageService } from '../../shared/services/voyage.service';
 import { Voyage } from '../../shared/entities/voyage';
 import { Voyageur } from '../../shared/entities/voyageurs';
+import { ClientService } from '../../shared/services/client.service';
+import { Client } from '../../shared/entities/client';
 declare var $: any;
 
 @Component({
@@ -35,7 +37,10 @@ export class VoyageCreationComponent implements OnInit {
   displayCivilite: string;
   displayDateNaissance: string;
 
-  constructor(private destinationService: DestinationService, private activatedRoute: ActivatedRoute, private router: Router, private voyageService: VoyageService) { }
+  client:Client;
+   
+
+  constructor(private destinationService: DestinationService, private activatedRoute: ActivatedRoute, private router: Router, private voyageService: VoyageService, private clientService: ClientService) { }
   
   // get participants():FormArray{
   //   return this.form.get('participants') as FormArray
@@ -58,6 +63,10 @@ export class VoyageCreationComponent implements OnInit {
           
     this.createFormControls();
     this.createForm();
+
+    this.clientService.getClientByNom(localStorage.getItem('userName')).subscribe(
+      (client) => { this.client = client}
+    )
   }
 
   createFormControls() {
@@ -89,7 +98,7 @@ export class VoyageCreationComponent implements OnInit {
     if(this.form.valid){
       console.warn(form.value);
       console.log("formulaire envoyé !");
-      // this.voyageService.createVoyageObject(this.voyageurs, )
+      this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages);
       this.voyageService.createVoyage(this.voyage);
     }
 

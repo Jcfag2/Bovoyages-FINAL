@@ -8,7 +8,6 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class VoyagesCommandesDetailComponent implements OnInit {
 
-  @Input() region:String;
   userName: String = localStorage.getItem('userName');
   LogInOut: String = localStorage.getItem('LogInOut');
 
