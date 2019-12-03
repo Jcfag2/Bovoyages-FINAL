@@ -8,6 +8,8 @@ import { DestinationDetailsComponent } from './voyage/components/destination-det
 import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
 import { AuthGuardService } from './auth-guard.service';
 import { LoginComponent } from './voyage/pages/login/login.component';
+import { VoyagesCommandesComponent } from './voyage/pages/voyages-commandes/voyages-commandes.component';
+import { VoyagesCommandesDetailComponent } from './voyage/pages/voyages-commandes-detail/voyages-commandes-detail.component';
 
 
 
@@ -26,6 +28,12 @@ const routes: Routes = [
    },
    {
     path: 'voyage-creation/:id', component: VoyageCreationComponent
+   },
+   {
+    path: 'voyages-commandes', component: VoyagesCommandesComponent
+   },
+   {
+    path: 'voyages-commandes-detail', component: VoyagesCommandesDetailComponent
    },
   {
    path: '**', redirectTo: 'home' //ou 'page-not-found'

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Voyage } from '../entities/voyage';
 import { map } from 'rxjs/operators';
@@ -43,12 +43,12 @@ export class VoyageService {
     // const params = new HttpParams().set('civilite', voyageur.civilite).set('nom', voyageur.nom).set('prenom', voyageur.prenom).set('dateNaissance', voyageur.dateNaissance);
   }
 
-
-
-
   // client = new Client(client.id, client.name);
 
   //=> GET localhost:4200/
+  getVoyagesClient(client: Client): Observable<Voyage[]> {
+   return this.httpClient.post<Voyage[]>('/voyage/client/all', {'id' : client.id, 'nom' : client.name})
+}
   // getVoyages(): Observable<Voyage> {
   //   return this.httpClient.get<Voyage[]>(this.url).pipe(
   //     map(result => result.map(voyage => new Voyage(voyage.id, voyage.region, voyage.descriptif, voyage.datesVoyages, voyage.client, voyage.voyageurs)))

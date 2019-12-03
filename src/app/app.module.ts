@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators, F
 import { VoyageCreationComponent } from './voyage/pages/voyage-creation/voyage-creation.component';
 import { CustomFormsModule } from 'ng2-validation'
 import { LoginComponent } from './voyage/pages/login/login.component';
+import { VoyagesCommandesComponent } from './voyage/pages/voyages-commandes/voyages-commandes.component';
+import { VoyagesCommandesDetailComponent } from './voyage/pages/voyages-commandes-detail/voyages-commandes-detail.component';
 
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataServiceService } from 'src/app/in-memory-data-service.service';
@@ -33,7 +35,9 @@ import { LoginComponent } from './voyage/pages/login/login.component';
     CarouselComponent,
     DestinationDetailsComponent,
     VoyageCreationComponent,
-    LoginComponent
+    LoginComponent,
+    VoyagesCommandesComponent,
+    VoyagesCommandesDetailComponent
   ],
   imports: [
     BrowserModule,
