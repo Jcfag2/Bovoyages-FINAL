@@ -34,7 +34,7 @@ const routes: Routes = [
     path: 'voyages-commandes', component: VoyagesCommandesComponent
    },
    {
-    path: 'voyages-commandes-detail', component: VoyagesCommandesDetailComponent
+    path: 'voyages-commandes-detail/:id', component: VoyagesCommandesDetailComponent
    },
    {
     path: 'signup', component: SignupComponent,

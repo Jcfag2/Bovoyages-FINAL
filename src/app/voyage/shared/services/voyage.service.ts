@@ -64,8 +64,14 @@ export class VoyageService {
   // client = new Client(client.id, client.name);
 
   //=> GET localhost:4200/
-  getVoyagesClient(client: Client): Observable<Voyage[]> {
-   return this.httpClient.post<Voyage[]>('/voyage/client/all', {'id' : client.id, 'nom' : client.name})
+  getVoyageById(id): Observable<Voyage> {
+   return this.httpClient.get<Voyage>('/voyage/'+id)
+}
+getVoyagesClient(client: Client): Observable<Voyage[]> {
+  return this.httpClient.post<Voyage[]>('/voyage/client/all', {'id' : client.id, 'nom' : client.name})
+}
+updateVoyage(voyage) {
+  return this.httpClient.post<Voyage>('/voyage/new', voyage)
 }
   // getVoyages(): Observable<Voyage> {
   //   return this.httpClient.get<Voyage[]>(this.url).pipe(

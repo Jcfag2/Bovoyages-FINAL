@@ -1,10 +1,6 @@
 <br>
 <br>
 <br>
-<p>{{client}}</p>
-<p>{{client.name}}</p>
-<p>{{voyages}}</p>
-<p>{{voyages}}</p>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -20,10 +16,10 @@
         <tr *ngFor="let voyage of voyages; let i = index;">
             <td>{{i+1}}</td>
             <td>{{voyage?.region}}</td>
-            <td>{{voyage?.dateVoyage.dateAller}}</td>
-            <td>{{voyage?.dateVoyage.dateRetour}}</td>
+            <td>{{voyage?.dateVoyage.dateAller | date : 'short'}}</td>
+            <td>{{voyage?.dateVoyage.dateRetour | date : 'short'}}</td>
             <td>{{voyage?.prixTotalHT}}€</td>
-            <td><a class="nav-link" routerLink="/voyages-commandes-detail">Modifier</a></td>
+            <td><a class="btn btn-primary btn-lg btn-block" [routerLink]="['/voyages-commandes-detail', voyage?.id]">Modifier</a></td>
         </tr>
     </tbody>
 </table>
