@@ -55,6 +55,9 @@ export class VoyageCreationComponent implements OnInit {
           datesVoyages => {
             this.datesVoyages = datesVoyages;
             console.log(this.datesVoyages)
+            this.destinationService.getDestinationById(this.datesVoyages.fk_destination).subscribe(
+              (destination) => { this.destination = destination}
+            )
           },
             error => console.log(" Error is : " + error),
             () => console.log("finished")
@@ -69,10 +72,7 @@ export class VoyageCreationComponent implements OnInit {
       (client) => { this.client = client}
     )
 
-    this.destinationService.getDestinationById(this.datesVoyages.fk_destination).subscribe(
-      (destination) => { this.destination = destination},
-      () => console.log("uesh "+ this.destination)
-    )
+    
     
 
   }
@@ -104,9 +104,10 @@ export class VoyageCreationComponent implements OnInit {
   onSubmit(){
     // if(this.form.valid){
       console.warn("voyageurs : "+JSON.stringify(this.voyageurs));
+      console.log("Console, oh belle console, dis moi quelle est ma destination! "+ JSON.stringify(this.destination))
      // this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages);
       // console.log("ce que je demande de créer : "+JSON.stringify(this.voyageService.createVoyageObject(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages, this.destination.descriptif, this.destination.region));
-      this.voyageService.createVoyage(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages));
+      this.voyageService.createVoyage(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages, this.destination.region, this.destination.descriptif));
       console.log("formulaire envoyé !");
       // this.destination.descriptif, this.destination.region
     // }

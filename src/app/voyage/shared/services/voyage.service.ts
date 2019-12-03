@@ -37,7 +37,7 @@ export class VoyageService {
     console.log("le voyage reçu par createVoyage "+JSON.stringify(this.voyage));
     voyage = this.voyage;
     console.log("Le voyage qui s'apprete a etre envoyé à la requête "+ JSON.stringify(voyage));
-    console.log("la requete : "+JSON.stringify(this.httpClient.post("/voyage/new", voyage)));
+    console.log("la requete : "+JSON.stringify(this.httpClient.post("/voyage/order", voyage)));
     this.httpClient.post("/voyage/new", voyage).subscribe(
       (voyage) => {this.voyage}
       ,
@@ -48,13 +48,13 @@ export class VoyageService {
 }
 
 
-  createVoyageObject(voyageurs:Voyageur[], client:Client, datesVoyages:DatesVoyages){
+  createVoyageObject(voyageurs:Voyageur[], client:Client, datesVoyages:DatesVoyages, description:string, region:string){
     
     this.voyage.voyageurs = voyageurs;
     this.voyage.client = client;
     this.voyage.dateVoyage = datesVoyages;
-    this.voyage.descriptif = "test descriptif";
-    this.voyage.region = "london";
+    this.voyage.descriptif = description;
+    this.voyage.region = region;
     console.log("createVoyageObject "+JSON.stringify(this.voyage));
     return this.voyage;
     // this.voyageur.nom = voyageurForm.nom;
