@@ -21,6 +21,7 @@ import { VoyagesCommandesComponent } from './voyage/pages/voyages-commandes/voya
 import { VoyagesCommandesDetailComponent } from './voyage/pages/voyages-commandes-detail/voyages-commandes-detail.component';
 import { SignupComponent } from './voyage/pages/signup/signup.component';
 import { CheckPasswordDirective } from './voyage/pages/signup/check-password.directive';
+import { VoyageConfirmationCommandeComponent } from './voyage/pages/voyage-confirmation-commande/voyage-confirmation-commande.component';
 
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataServiceService } from 'src/app/in-memory-data-service.service';
@@ -42,6 +43,7 @@ import { CheckPasswordDirective } from './voyage/pages/signup/check-password.dir
     VoyagesCommandesDetailComponent,
     SignupComponent,
     CheckPasswordDirective,
+    VoyageConfirmationCommandeComponent,
   ],
   imports: [
     BrowserModule,

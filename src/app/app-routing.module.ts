@@ -11,6 +11,7 @@ import { LoginComponent } from './voyage/pages/login/login.component';
 import { VoyagesCommandesComponent } from './voyage/pages/voyages-commandes/voyages-commandes.component';
 import { VoyagesCommandesDetailComponent } from './voyage/pages/voyages-commandes-detail/voyages-commandes-detail.component';
 import { SignupComponent } from './voyage/pages/signup/signup.component';
+import { VoyageConfirmationCommandeComponent } from './voyage/pages/voyage-confirmation-commande/voyage-confirmation-commande.component';
 
 
 
@@ -29,6 +30,9 @@ const routes: Routes = [
    },
    {
     path: 'voyage-creation/:id', component: VoyageCreationComponent, canActivate: [ AuthGuardService ]
+   },
+   {
+    path: 'voyage-confirmation', component: VoyageConfirmationCommandeComponent
    },
    {
     path: 'voyages-commandes', component: VoyagesCommandesComponent
