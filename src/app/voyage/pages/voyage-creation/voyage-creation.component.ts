@@ -107,8 +107,9 @@ export class VoyageCreationComponent implements OnInit {
       console.log("Console, oh belle console, dis moi quelle est ma destination! "+ JSON.stringify(this.destination))
      // this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages);
       // console.log("ce que je demande de créer : "+JSON.stringify(this.voyageService.createVoyageObject(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages, this.destination.descriptif, this.destination.region));
-      this.voyageService.createVoyage(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages, this.destination.region, this.destination.descriptif));
+      this.voyageService.createVoyage(this.voyageService.createVoyageObject(this.voyageurs, this.client, this.datesVoyages, this.destination.descriptif, this.destination.region));
       console.log("formulaire envoyé !");
+      this.router.navigate(['/voyage-confirmation']);
       // this.destination.descriptif, this.destination.region
     // }
 
